@@ -1,0 +1,43 @@
+<div class="flex-container">
+  <div class="form-container">
+    <h1>Sign In</h1>
+    <form class="login-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>User</mat-label>
+        <input matInput placeholder="User Name" #name autocomplete="off" />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder="Password"
+          #password
+          type="password"
+          autocomplete="off"
+        />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Confirm Password</mat-label>
+        <input
+          matInput
+          placeholder="Password"
+          #repassword
+          type="password"
+          autocomplete="off"
+        />
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="
+          onSubmit($event, name.value, password.value, repassword.value)
+        "
+      >
+        Sign In
+      </button>
+      <button (click)="redirectToLogin($event)" mat-button color="accent">
+        Log in
+      </button>
+    </form>
+  </div>
+</div>
