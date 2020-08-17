@@ -1,0 +1,27 @@
+.contianer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  .form {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .full-width {
+    max-width: 90%;
+    min-width: 80%;
+  }
+  .button-group {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  

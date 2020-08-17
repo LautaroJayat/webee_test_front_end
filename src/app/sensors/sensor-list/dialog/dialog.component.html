@@ -1,0 +1,91 @@
+<div class="container">
+  <h2>Update Sensor</h2>
+  <form class="form">
+    <mat-form-field class="full-width">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        placeholder="Sensor Name"
+        [value]="data.name"
+        #name
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Latitude</mat-label>
+      <input
+        matInput
+        placeholder="Latitude"
+        [value]="data.location.latitude"
+        #latitude
+        type="number"
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Longitude</mat-label>
+      <input
+        matInput
+        placeholder="Longitude"
+        #longitude
+        [value]="data.location.longitude"
+        type="number"
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Min. Value</mat-label>
+      <input
+        matInput
+        placeholder="Minimum value"
+        #minValue
+        [value]="data.minValue"
+        type="number"
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Max. Value</mat-label>
+      <input
+        matInput
+        placeholder="Maximum value"
+        #maxValue
+        [value]="data.maxValue"
+        type="number"
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <div class="full-width">
+      <mat-checkbox
+        [checked]="data.active"
+        (change)="setActive($event.checked)"
+        [value]="data.active"
+        #active
+        class="example-margin"
+        >¿Active?</mat-checkbox
+      >
+    </div>
+    <div class="button-group">
+      <button mat-raised-button color="accent" (click)="onCancel($event)">
+        CANCEL
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="
+          onSubmit(
+            $event,
+            name.value,
+            latitude.value,
+            longitude.value,
+            minValue.value,
+            maxValue.value,
+            active.value
+          )
+        "
+      >
+        UPDATE
+      </button>
+    </div>
+  </form>
+</div>

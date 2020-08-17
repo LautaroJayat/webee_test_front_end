@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Update Event</h2>
+  <h3>
+    In order to preserve data integrity you will only be able to modify the
+    value of the event
+  </h3>
+  <h4>
+    Insert a value bewteen {{ data.sensor.minValue }} and
+    {{ data.sensor.maxValue }}
+  </h4>
+
+  <form class="form">
+    <mat-form-field class="full-width">
+      <mat-label>Value</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="Insert a value"
+        [min]="data.sensor.minValue"
+        [max]="data.sensor.maxValue"
+        #value
+        autocomplete="off"
+      />
+    </mat-form-field>
+
+    <div class="button-group">
+      <button mat-raised-button color="accent" (click)="onCancel($event)">
+        CANCEL
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onSubmit($event, value.value)"
+      >
+        UPDATE
+      </button>
+    </div>
+  </form>
+</div>

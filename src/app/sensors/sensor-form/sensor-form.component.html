@@ -1,0 +1,84 @@
+<div class="background">
+  <div class="blur-layer"></div>
+</div>
+
+<div class="container">
+  <!--Action Buttons-->
+  <div class="buttons">
+    <button
+      (click)="goBack($event)"
+      class="button"
+      mat-fab
+      color="accent"
+      aria-label="go bacl"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+
+  <div class="centered-content">
+    <h1>Register a Sensor</h1>
+    <form class="login-form">
+      <mat-form-field class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Sensor Name" #name autocomplete="off" />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Latitude</mat-label>
+        <input
+          matInput
+          placeholder="Latitude"
+          #latitude
+          type="number"
+          autocomplete="off"
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Longitude</mat-label>
+        <input
+          matInput
+          placeholder="Longitude"
+          #longitude
+          type="number"
+          autocomplete="off"
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Min. Value</mat-label>
+        <input
+          matInput
+          placeholder="Minimum value"
+          #minValue
+          type="number"
+          autocomplete="off"
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Max. Value</mat-label>
+        <input
+          matInput
+          placeholder="Maximum value"
+          #maxValue
+          type="number"
+          autocomplete="off"
+        />
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="
+          onSubmit(
+            $event,
+            name.value,
+            latitude.value,
+            longitude.value,
+            minValue.value,
+            maxValue.value
+          )
+        "
+      >
+        Register
+      </button>
+    </form>
+  </div>
+</div>

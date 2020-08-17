@@ -1,0 +1,81 @@
+<div class="sensor-info">
+  <div class="info">
+    <h2>{{ sensor.name }}</h2>
+    <h3>Latitude: {{ sensor.location.latitude }}</h3>
+    <h3>Longitude: {{ sensor.location.longitude }}</h3>
+    <h3>Min. Value: {{ sensor.minValue }}</h3>
+    <h3>Max. Value: {{ sensor.maxValue }}</h3>
+    <h3>¿Active?: {{ sensor.active }}</h3>
+  </div>
+</div>
+
+<div class="background">
+  <div class="blur-layer"></div>
+</div>
+<div class="container">
+  <!--Sensor Info-->
+
+  <!--Action Buttons-->
+  <div class="buttons">
+    <button
+      (click)="goBack($event)"
+      class="button"
+      mat-fab
+      color="accent"
+      aria-label="go bacl"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+  <div class="centered-content">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table">
+      <!-- Value Column -->
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef>Value</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.value }}
+        </td>
+      </ng-container>
+
+      <!-- Timestamp Column -->
+      <ng-container matColumnDef="timestamp">
+        <th mat-header-cell *matHeaderCellDef>Emition Day</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.createat | date: "long" }}
+        </td>
+      </ng-container>
+      <!-- Actions Column -->
+      <ng-container matColumnDef="_id">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <div class="actions-container">
+            <button
+              (click)="deleteOne($event, element._id)"
+              class="button"
+              mat-mini-fab
+              color="warn"
+              aria-label="Add a sensor"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button
+              (click)="editOne($event, element._id)"
+              class="button"
+              mat-mini-fab
+              color="warn"
+              aria-label="Add a sensor"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        class="row"
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+      ></tr>
+    </table>
+  </div>
+</div>

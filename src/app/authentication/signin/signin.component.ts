@@ -40,7 +40,7 @@ export class SigninComponent implements OnInit {
     }
     if (name.length < 5) {
       this._snackBar.open(
-        'Tu nombre de usuario debe tener al menos 4 carácteres',
+        'Your user name should have at least 4 characters',
         'Continuar',
         {
           duration: 2000,
@@ -49,7 +49,7 @@ export class SigninComponent implements OnInit {
     }
     if (password.length < 5) {
       this._snackBar.open(
-        'Tu password debe tener al menos 4 carácteres',
+        'Your passowrd should have at least 4 characters',
         'Continuar',
         {
           duration: 2000,
@@ -58,7 +58,7 @@ export class SigninComponent implements OnInit {
     }
 
     if (password !== repassword) {
-      this._snackBar.open('Los passwords no coinciden', 'Continuar', {
+      this._snackBar.open('The passwords does not match', 'Continuar', {
         duration: 2000,
       });
       return;

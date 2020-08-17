@@ -11,7 +11,6 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    pathMatch: 'full',
 
     component: LoginComponent,
   },
@@ -19,6 +18,11 @@ const routes: Routes = [
     path: 'signin',
     pathMatch: 'full',
     component: SigninComponent,
+  },
+  {
+    path: 'sensors',
+    loadChildren: () =>
+      import('./sensors/sensors.module').then((m) => m.SensorsModule),
   },
 ];
 
